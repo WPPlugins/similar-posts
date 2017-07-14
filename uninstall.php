@@ -1,0 +1,17 @@
+<?php
+/*
+ * Similar Posts
+ * (c) Web factory Ltd, 2008 - 2017
+ */
+ 
+ 
+	if (defined('ABSPATH') && defined('WP_UNINSTALL_PLUGIN')) {
+		global $wpdb, $table_prefix;
+    
+		delete_option('similar-posts');
+		delete_option('similar-posts-feed');
+		delete_option('widget_rrm_similar_posts');
+		
+    $table_name = $table_prefix . 'similar_posts';
+		$wpdb->query("DROP TABLE `$table_name`");
+	}
